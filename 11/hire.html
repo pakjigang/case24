@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CASE24</title>
+
+  <link rel="stylesheet" href="./hirecss/hire.css"/>
+  <link rel="stylesheet" href="./css/reset.css"/>
+  <link rel="stylesheet" href="./css/main.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  const counters = document.querySelectorAll('.counter');
+
+  let animated = false;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if(entry.isIntersecting && !animated){
+
+        animated = true;
+
+        counters.forEach(counter => {
+
+          const target = Number(counter.dataset.target);
+
+          counter.textContent = "0";
+
+          let current = 0;
+
+          const increment = target / 50;
+
+          const updateCounter = () => {
+
+            current += increment;
+
+            if(current < target){
+
+              counter.textContent = Math.ceil(current);
+
+              requestAnimationFrame(updateCounter);
+
+            }else{
+
+              counter.textContent = target;
+
+            }
+
+          };
+
+          updateCounter();
+
+        });
+
+      }
+
+      if(!entry.isIntersecting){
+        animated = false;
+      }
+
+    });
+
+  }, {
+    threshold:0.5
+  });
+
+  observer.observe(document.querySelector('.stats-wrap'));
+
+});
+</script>
+
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script>
+const lenis = new Lenis({
+  duration: 1.2
+});
+
+function raf(time){
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+</script>
+
+</head>
+
+
+
+  <!-- HEADER -->
+  <header class="header">
+
+    <div class="logo">
+      CASE24
+    </div>
+
+    <nav class="nav">
+
+  <div class="nav-item">
+    <a href="./index.html">HOME</a>
+  </div>
+
+  <div class="nav-item">
+    <a href="./about.html">ABOUT</a>
+
+    <div class="submenu about-menu">
+  <a href="./about.html">소개 & 연혁</a>
+</div>
+  </div>
+
+  <div class="nav-item">
+    <a href="./business.html">BUSINESS</a>
+
+    <div class="submenu business-menu">
+      <a href="./business.html">우리가 하는 일</a>
+      <a href="#">Nineteenfriday</a>
+      <a href="#">CASEFACTORY</a>
+      <a href="#">KINGT UV Korea</a>
+    </div>
+  </div>
+
+  <div class="nav-item">
+    <a href="./news.html">NEWS</a>
+  </div>
+
+  <div class="nav-item">
+    <a href="./hire.html">HIRE</a>
+
+    <div class="submenu hire-menu">
+  <a href="./hire.html">채용안내</a>
+</div>
+  </div>
+
+  <div class="nav-item">
+    <a href="./contact.html">CONTACT</a>
+
+    <div class="submenu">
+      <a href="./contact.html">오시는 길</a>
+      <a href="./contact2.html">협업제안</a>
+    </div>
+  </div>
+
+</nav>
+
+    <div class="right-menu">
+
+  <span class="login">LOGIN</span>
+
+  <span class="divider"></span>
+
+  <span class="search-icon">⌕</span>
+
+</div>
+
+  </header>
+
+
+  <section class="hire-hero">
+
+    <span class="sub-title">
+        CASE24 CAPABILITIES
+    </span>
+
+    <h1>
+        BUILD<br>
+        WITH US.
+    </h1>
+
+    <p>
+        사람이 아이디어를 만듭니다.<br>
+        CASE24와 함께 새로운 성장을 만들어갈 동료를 찾습니다.
+    </p>
+
+</section>
+
+
+<section class="hire-values">
+
+    <div class="value-row">
+
+        <h2>
+            WE MOVE<br>
+            FAST.
+        </h2>
+
+        <p>
+            결정은 빠르게.<br>
+            실행은 더 빠르게.
+        </p>
+
+    </div>
+
+    <div class="value-row">
+
+        <h2 class="white">
+            FROM<br>
+            BUSAN.
+        </h2>
+
+        <p>
+            서울이 아닌 부산에서<br>
+            성장의 새로운 기준을 만듭니다.
+        </p>
+
+    </div>
+
+    <div class="value-row">
+
+        <h2>
+            TRUST<br>
+            PEOPLE.
+        </h2>
+
+        <p>
+            좋은 동료가 최고의 복지라고 믿습니다.<br>
+            서로를 존중하며 함께 성장합니다.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div>16억+</div>
+    <div>63%</div>
+    <div>100만+</div>
+
+</section>
+
+
+<section class="space">
+
+   <div class="space-slider">
+
+    <div class="slide-track">
+
+        <img src="images/hgh.PNG" alt="">
+        <img src="images/GG.PNG" alt="">
+        <img src="images/ggh.PNG" alt="">
+
+    </div>
+
+</div>
+    <div class="space-text">
+
+        <span>OUR SPACE</span>
+
+        <h2>
+            좋은 공간은<br>
+            좋은 아이디어를 만듭니다.
+        </h2>
+
+    </div>
+
+</section>
+
+
+<section class="benefits">
+
+    <span>BENEFITS</span>
+
+    <h2>
+        일에만 집중할 수 있도록<br>
+        지원합니다.
+    </h2>
+
+    <div class="benefit-slider">
+  <div class="benefit-track">
+    LUNCH • BOOK • SNACK • BONUS • TRAVEL • REST •
+    LUNCH • BOOK • SNACK • BONUS • TRAVEL • REST •
+  </div>
+</div>
+
+</section>
+
+
+<section class="cta">
+
+    <span>READY?</span>
+
+    <h2>
+        다음 성장을 시작할 준비가<br>
+        되셨나요?
+    </h2>
+
+    <a href="#" class="apply-btn">
+        APPLY RIGHT NOW
+    </a>
+
+</section>
+
+
+<footer class="footer-bottom">
+
+    <div>
+        <h3>CASE24 Co., Ltd.</h3>
+
+        <p>
+            Connecting Creativity and Craft
+        </p>
+    </div>
+
+    <div class="footer-copy">
+
+        <p>
+            Business Registration Number :
+            230-87-02139 | CEO : Kim Miso
+        </p>
+
+        <small>
+            © 2026 CASE24 Co., Ltd.
+            All rights reserved.
+        </small>
+
+    </div>
+
+</footer>
